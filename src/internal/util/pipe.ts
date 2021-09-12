@@ -1,6 +1,12 @@
 import { identity } from './identity';
 import { UnaryFunction } from '../types';
 
+/**
+ * There is no explanation of what this function does, so I'm guessing, and hoping that my guess will be corrected.
+ * pipe() can be called on one or more functions, each of which can take one argument ("UnaryFunction"), to get back
+ * a function that passes the result of each subsequent UnaryFunction to the next one.  It's an implementation of
+ * what is described at https://typeofnan.dev/how-to-use-pipe-the-pipeline-operator-in-javascript/
+ */
 export function pipe(): typeof identity;
 export function pipe<T, A>(fn1: UnaryFunction<T, A>): UnaryFunction<T, A>;
 export function pipe<T, A, B>(fn1: UnaryFunction<T, A>, fn2: UnaryFunction<A, B>): UnaryFunction<T, B>;
